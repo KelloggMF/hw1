@@ -1,7 +1,7 @@
 
 -- Dropping tables (if they exist, of course!)
 DROP TABLE IF EXISTS films;
-DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS roles;
 
 -- Creating and populating films table 
 CREATE TABLE films (
@@ -49,40 +49,6 @@ VALUES (
     "2012",
     "PG-13",
     "Warner Bros."
-);
-
--- Creating and populating studios table
-CREATE TABLE studios (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    studio_name TEXT,
-    film_title TEXT
-);
-
-INSERT INTO studios (
-    studio_name,
-    film_title
-    )
-VALUES (
-    "Warner Bros.",
-    "Batman Begins"
-);
-
-INSERT INTO studios (
-    studio_name,
-    film_title
-    )
-VALUES (
-    "Warner Bros.",
-    "The Dark Knight"
-);
-
-INSERT INTO studios (
-    studio_name,
-    film_title
-    )
-VALUES (
-    "Warner Bros.",
-    "The Dark Knight Rises"
 );
 
 -- Creating and populating roles table
@@ -261,6 +227,8 @@ VALUES (
     "Anne Hathaway",
     "Selina Kyle"
 );
+
+
 
 -- Realizing that I'm not using foreign key nomenclature here (e.g., film_id in the roles section).
 -- I'm choosing not to do this because I imagine a user would rather see the film's title, rather than the corresponding ID number.
