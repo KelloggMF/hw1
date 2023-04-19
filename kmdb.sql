@@ -1,4 +1,3 @@
-
 -- Dropping tables (if they exist, of course!)
 DROP TABLE IF EXISTS films;
 DROP TABLE IF EXISTS roles;
@@ -54,181 +53,198 @@ VALUES (
 -- Creating and populating roles table
 CREATE TABLE roles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    film_title TEXT,
+    film_id INTEGER ,
     actor_name TEXT,
     role_name TEXT
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "Batman Begins",
+    1,
     "Christian Bale",
     "Bruce Wayne"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "Batman Begins",
+    1,
     "Michael Caine",
     "Alfred"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "Batman Begins",
+    1,
     "Liam Neeson",
     "Ra's Al Ghul"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "Batman Begins",
+    1,
     "Katie Holmes",
     "Rachel Dawes"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "Batman Begins",
+    1,
     "Gary Oldman",
     "Commissioner Gordon"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight",
+    2,
     "Christian Bale",
     "Bruce Wayne"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight",
+    2,
     "Heath Ledger",
     "Joker"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight",
+    2,
     "Aaron Eckhart",
     "Harvey Dent"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight",
+    2,
     "Michael Caine",
     "Alfred"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight",
+    2,
     "Maggie Gyllenhaal",
     "Rachel Dawes"
 );
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight Rises",
+    3,
     "Christian Bale",
     "Bruce Wayne"
 );
 
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight Rises",
+    3,
     "Gary Oldman",
     "Commissioner Gordon"
 );
 
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight Rises",
+    3,
     "Tom Hardy",
     "Bane"
 );
 
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight Rises",
+    3,
     "Joseph Gordon-Levitt",
     "John Blake"
 );
 
 
 INSERT INTO roles (
-    film_title,
+    film_id,
     actor_name,
     role_name
 )
 VALUES (
-    "The Dark Knight Rises",
+    3,
     "Anne Hathaway",
     "Selina Kyle"
 );
 
+-- Formatting for SELECT statement I
+.mode column
+.headers off
+.print ""
+.print "Movies"
+.print "======"
+.print ""
+
+-- Writing the SQL statement for the movies output
+SELECT film_title, year_released, MPAA_rating, studio FROM films;
+
+-- Formatting for SELECT statement II
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
 
 
--- Realizing that I'm not using foreign key nomenclature here (e.g., film_id in the roles section).
--- I'm choosing not to do this because I imagine a user would rather see the film's title, rather than the corresponding ID number.
+-- Writing the SQL statement for the cast output 
+SELECT films.film_title, roles.actor_name, roles.role_name
+FROM films INNER JOIN roles ON films.id = roles.film_id;
